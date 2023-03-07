@@ -1,5 +1,6 @@
 variable "secrets" {
   type = object({
+    key_name = string
     database = object({
       name = string
       user = string
@@ -28,14 +29,16 @@ variable "eip_tag" {
   type = string
 }
 
+variable "instance_type" {
+  type = string
+}
+
+// TODO: convert "any" to more strict types
+
 variable "ports" {
   type = any
 }
 
 variable "network" {
-  type = any
-}
-
-variable "instance" {
   type = any
 }

@@ -1,10 +1,11 @@
 variable "name" { type = string }
 
-variable "instance" {
-  type = object({
-    key_name = string
-    type = string
-  })
+variable "instance_type" {
+  type = string
+}
+
+variable "key_name" {
+  type = string
 }
 
 variable "ami_image_id" {
@@ -89,9 +90,9 @@ resource "aws_eip_association" "eip_assoc" {
 }
 
 resource "aws_instance" "terrainfra_svcs_instance" {
-  key_name                    = var.instance.key_name
+  key_name                    = var.key_name
   ami                         = var.ami_image_id
-  instance_type               = var.instance.type
+  instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.terrainfra_svcs_instance.id]
   subnet_id                   = var.data.subnets.public["a"].id
 

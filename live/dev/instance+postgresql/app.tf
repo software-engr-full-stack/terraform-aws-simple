@@ -45,15 +45,14 @@ data "template_file" "user_data" {
 module "instance" {
   source = "../../../modules/services/instance"
   name = var.name
-
-  instance = var.instance
+  key_name = var.secrets.key_name
+  instance_type = var.instance_type
   ports = var.ports
 
   ami_image_id = data.aws_ami.ubuntu.id
+  data = module.network.data
 
   myip = local.myip
-
-  data = module.network.data
 
   eip = {
     do_associate = true
