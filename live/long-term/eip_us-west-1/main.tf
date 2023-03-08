@@ -14,7 +14,7 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_eip" "permanent" {
+resource "aws_eip" "eip" {
   tags = {
     Name = var.eip_tag
   }

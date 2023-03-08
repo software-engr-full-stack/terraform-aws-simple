@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "software-engr-full-stack"
     workspaces {
-      name = "aws_permanent_eip_us-west-1"
+      name = "aws_long-term_eip_us-west-1"
     }
   }
 }

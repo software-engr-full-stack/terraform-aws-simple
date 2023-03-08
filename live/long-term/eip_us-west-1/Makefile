@@ -1,6 +1,6 @@
 include ../../../lib/Makefile
 
-_tf_backend_src := $(_app_dir)/user/backends/permanent_eip_us-west-1.tf
+_tf_backend_src := $(_app_dir)/user/backends/long-term_eip_us-west-1.tf
 _eip_var_file  := $(_app_dir)/config/eip_us-west-1.json
 
 init:
