@@ -1,6 +1,6 @@
 include ../../../lib/Makefile
 
-_user_file_src := $(_app_dir)/user/dev_instance+postgresql.tf
+_tf_backend_src := $(_app_dir)/user/backends/dev_instance+postgresql.tf
 _network_vf    := $(_app_dir)/config/network.json
 
 _tf_args := -var-file=$(shell cat $(_app_dir)/user/path-to-secrets) \
@@ -8,16 +8,16 @@ _tf_args := -var-file=$(shell cat $(_app_dir)/user/path-to-secrets) \
 	          -var-file=$(_app_dir)/config/eip_us-west-1.json
 
 init:
-	$(call init,$(_user_file_src))
+	$(call init,$(_tf_backend_src))
 
 plan:
-	$(call plan,$(_user_file_src))
+	$(call plan,$(_tf_backend_src))
 
 apply:
-	$(call _apply_or_destroy,$(_user_file_src), apply)
+	$(call _apply_or_destroy,$(_tf_backend_src), apply)
 
 destroy:
-	$(call _apply_or_destroy,$(_user_file_src), destroy)
+	$(call _apply_or_destroy,$(_tf_backend_src), destroy)
 
 define plan
 	$(call check_empty_string,$(1))
