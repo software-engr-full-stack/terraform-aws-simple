@@ -5,7 +5,8 @@ _network_vf    := $(_app_dir)/config/network.json
 
 _tf_args := -var-file=$(shell cat $(_app_dir)/user/path-to-secrets) \
 	          -var-file=$(_network_vf) \
-	          -var-file=$(_app_dir)/config/eip_us-west-1.json
+	          -var-file=$(_app_dir)/config/vars.json \
+	          -var-file=$(_app_dir)/config/eip.json
 
 init:
 	$(call init,$(_tf_backend_src))
