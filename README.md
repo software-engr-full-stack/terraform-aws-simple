@@ -59,3 +59,7 @@ The Elastic IP must be deployed before running these commands. Run these command
 You can remove the `approve=true` option in the `apply` and `destroy` commands. If you should CTRL-C while being asked for approval, the back-end temp file won't be deleted. You can delete this file manually.
 
 After deployment, the IP address and RDS endpoint should be displayed as the output to the `terraform` command. You can now SSH into the instance using the IP address and set up your app. You can now enter the RDS endpoint along with the user name and password into your database settings.
+
+### TODO
+
+Organize config files better (`./config/*.json`, auto-loaded files like `terraform.tfvars.json`)
